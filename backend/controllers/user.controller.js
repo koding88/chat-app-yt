@@ -10,7 +10,7 @@ export const getUsersForSidebar = async (req, res) => {
             return res.status(200).json({data: []});
         }
 
-        res.status(200).json({ data: filteredUsers});
+        res.status(200).json(filteredUsers);
     } catch (error) {
         console.error("Error getting users for sidebar: ", error);
         res.status(500).json({ error: "Internal server error" });
