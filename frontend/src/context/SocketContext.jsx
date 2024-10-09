@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if(authUser){
-            const socket = io("http://localhost:5000",{
+            const socket = io("https://chat-app-yt-atk9.onrender.com",{
                 query:{
                     userId: authUser._id,
                 }
@@ -32,7 +32,7 @@ export const SocketContextProvider = ({ children }) => {
             if (socket) socket.close();
             setSocket(null);
         }
-    }, [authUser]); 
+    }, [authUser]);
 
     return <SocketContext.Provider value={{ socket, onlineUsers }}>{children}</SocketContext.Provider>;
 };
