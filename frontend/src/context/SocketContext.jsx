@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if(authUser){
-            const socket = io("https://redesigned-funicular-j776jpxjjxg3px5w-8000.app.github.dev",{
+            const socket = io("http://localhost:5000",{
                 query:{
                     userId: authUser._id,
                 }
@@ -32,7 +32,7 @@ export const SocketContextProvider = ({ children }) => {
             if (socket) socket.close();
             setSocket(null);
         }
-    }, [authUser]);
+    }, [authUser]); 
 
     return <SocketContext.Provider value={{ socket, onlineUsers }}>{children}</SocketContext.Provider>;
 };
